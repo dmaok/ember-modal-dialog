@@ -1,0 +1,12 @@
+{{#ember-wormhole to='modal_layer' renderInPlace=renderInPlace}}
+  {{#ember-modal-dialog-pr-legacy-container
+      targetAttachment=targetAttachment
+      target=target
+      close="close"
+      afterOpen="afterOpen"
+  }}
+    <div class="modal-window {{modalClass}}">
+      {{yield}}
+    </div>
+  {{/ember-modal-dialog-pr-legacy-container}}
+{{/ember-wormhole}}
