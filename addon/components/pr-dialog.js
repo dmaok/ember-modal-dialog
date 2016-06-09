@@ -9,6 +9,8 @@ export default Ember.Component.extend({
   layout,
   modalService: inject.service('modal-dialog'),
   destinationElementId: oneWay('modalService.destinationElementId'),
+  
+  nonMiddled: false,
 
   modalClass: computed('modalClassName', function() {
     return this.get('modalClassName') || '';
