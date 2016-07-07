@@ -27,6 +27,9 @@ export default Ember.Component.extend({
     },
     close(doTransition) {
       this.sendAction('close', doTransition);
+    },
+    btnCloseClick() {
+      window.Window.close(this.get('modalClassName'));
     }
   }
 });

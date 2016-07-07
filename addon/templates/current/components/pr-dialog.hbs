@@ -7,7 +7,14 @@
       nonMiddled=nonMiddled
   }}
     <div class="modal-window {{modalClass}}">
-      {{yield}}
+      <div class="modal-window-header">
+        <a class="close" {{action "btnCloseClick"}}>
+          <i class="fa fa-remove"></i>
+        </a>
+      </div>
+      <div class="modal-window-body">
+        {{yield}}
+      </div>
     </div>
   {{/ember-modal-dialog-pr-legacy-container}}
 {{/ember-wormhole}}
