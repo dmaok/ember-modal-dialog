@@ -11,6 +11,7 @@ export default Ember.Component.extend({
   destinationElementId: oneWay('modalService.destinationElementId'),
   
   nonMiddled: false,
+  closable: true,
 
   modalClass: computed('modalClassName', function() {
     return this.get('modalClassName') || '';

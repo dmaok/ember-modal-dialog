@@ -5,12 +5,15 @@
       close="close"
       afterOpen="afterOpen"
       nonMiddled=nonMiddled
+      closable=closable
   }}
     <div class="modal-window {{modalClass}}">
       <div class="modal-window-header">
-        <a class="close" {{action "btnCloseClick"}}>
-          <i class="fa fa-remove"></i>
-        </a>
+        {{#if closable}}
+          <a class="close" {{action "btnCloseClick"}}>
+            <i class="fa fa-remove"></i>
+          </a>
+        {{/if}}
       </div>
       <div class="modal-window-body">
         {{yield}}
