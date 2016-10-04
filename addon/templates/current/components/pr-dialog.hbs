@@ -6,15 +6,16 @@
       afterOpen="afterOpen"
       nonMiddled=nonMiddled
       closable=closable
+      modalClassName=modalClass
   }}
     <div class="modal-window {{modalClass}}">
+      {{#if closable}}
       <div class="modal-window-header">
-        {{#if closable}}
-          <a class="close" {{action "btnCloseClick"}}>
+            <a class="close" {{action "btnCloseClick"}}>
             <i class="fa fa-remove"></i>
           </a>
-        {{/if}}
       </div>
+      {{/if}}
       <div class="modal-window-body">
         {{yield}}
       </div>
