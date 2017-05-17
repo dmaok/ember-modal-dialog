@@ -1,5 +1,10 @@
+import { click, findAll, waitUntil } from 'ember-native-dom-helpers';
 import Ember from 'ember';
 import QUnit from 'qunit';
+
+export function findContains(selector, text) {
+  return [].slice.apply(findAll(selector)).filter((e) => e.textContent.trim().indexOf(text) > -1)[0];
+}
 
 export default function registerAssertHelpers() {
   const { assert } = QUnit;
@@ -21,22 +26,22 @@ export default function registerAssertHelpers() {
     return this.ok(findWithAssert(selector).is(':visible'), message);
   };
 
-  assert.dialogOpensAndCloses = function(options, message) {
-    message = message || `Dialog triggered by ${options.openSelector} failed to open and close`;
-    const dialogContent = [dialogSelector, `:contains(${options.dialogText})`].join('');
+  assert.dialogOpensAndCloses = async function(options) {
     const self = this;
-    return click(options.openSelector, options.context).then(function() {
-      if (options.hasOverlay) {
-        self.isPresentOnce(overlaySelector);
-      }
-      self.isPresentOnce(dialogContent);
-      if (options.whileOpen) {
-        options.whileOpen();
-      }
-      return click(options.closeSelector, options.context).then(function() {
-        self.isAbsent(overlaySelector);
-        self.isAbsent(dialogContent);
-      });
+    await click(options.openSelector, options.context);
+    await waitUntil(function() {
+      return findContains(dialogSelector, options.dialogText);
     });
+    if (options.hasOverlay) {
+      self.isPresentOnce(overlaySelector);
+    }
+    if (options.whileOpen) {
+      await options.whileOpen();
+    }
+    await click(options.closeSelector, options.context);
+    await waitUntil(function() {
+      return !findContains(dialogSelector, options.dialogText);
+    });
+    self.isAbsent(overlaySelector);
   };
 }

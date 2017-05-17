@@ -1,21 +1,19 @@
 import Ember from 'ember';
-const { get, set } = Ember;
 
 export default Ember.Controller.extend({
-  queryParams: ['activeComponent'],
-  activeComponent: 'tether-dialog',
   isShowingBasic: false,
   isShowingTranslucent: false,
+  isShowingTranslucentWithCallback: false,
   isShowingWithoutOverlay: false,
   isShowingWithoutOverlayClickOutsideToClose: false,
+  isShowingWithoutOverlayClickOutsideToCloseAnotherOne: false,
   isShowingCustomStyles: false,
   isShowingTargetSelector: false,
-  isShowingTargetView: false,
   isShowingTargetElement: false,
   isShowingSubclassed: false,
   isShowingInPlace: false,
-  isInPlace: true,
   isShowingCenteredScrolling: false,
+  isShowingElementCenterModal: false,
   exampleTargetAttachment: 'middle left',
   exampleAttachment: 'middle right',
   customContainerClassNames: 'custom-styles-modal-container',
@@ -33,28 +31,6 @@ export default Ember.Controller.extend({
     return false;
   },
   actions: {
-    toggleActiveComponent() {
-      if (get(this, 'activeComponent') === 'modal-dialog') {
-        set(this, 'activeComponent', 'tether-dialog');
-      } else {
-        set(this, 'activeComponent', 'modal-dialog');
-      }
-    },
-    toggleBasic() {
-      this.toggleProperty('isShowingBasic');
-    },
-    toggleTranslucent() {
-      this.toggleProperty('isShowingTranslucent');
-    },
-    toggleWithoutOverlay() {
-      this.toggleProperty('isShowingWithoutOverlay');
-    },
-    toggleWithoutOverlayClickOutsideToClose() {
-      this.toggleProperty('isShowingWithoutOverlayClickOutsideToClose');
-    },
-    toggleCustomStyles() {
-      this.toggleProperty('isShowingCustomStyles');
-    },
     toggleTargetSelector() {
       if (this.get('isShowingTargetSelector')) {
         let newTargetAttachment = this.nextAttachment(this.get('exampleTargetAttachment'));
@@ -67,18 +43,6 @@ export default Ember.Controller.extend({
       }
       this.toggleProperty('isShowingTargetSelector');
     },
-    toggleTargetView() {
-      if (this.get('isShowingTargetView')) {
-        let newTargetAttachment = this.nextAttachment(this.get('exampleTargetAttachment'));
-        let newAttachment = this.nextAttachment(this.get('exampleAttachment'));
-        this.set('exampleTargetAttachment', newTargetAttachment);
-        this.set('exampleAttachment', newAttachment);
-        if (newTargetAttachment !== 'middle left') {
-          return;
-        }
-      }
-      this.toggleProperty('isShowingTargetView');
-    },
     toggleTargetElement() {
       if (this.get('isShowingTargetElement')) {
         let newTargetAttachment = this.nextAttachment(this.get('exampleTargetAttachment'));
@@ -90,15 +54,6 @@ export default Ember.Controller.extend({
         }
       }
       this.toggleProperty('isShowingTargetElement');
-    },
-    toggleSubclassed() {
-      this.toggleProperty('isShowingSubclassed');
-    },
-    toggleInPlace() {
-      this.toggleProperty('isShowingInPlace');
-    },
-    toggleIsInPlace() {
-      this.toggleProperty('isInPlace');
     },
     toggleCenteredScrolling() {
       this.toggleProperty('isShowingCenteredScrolling');
@@ -116,15 +71,13 @@ export default Ember.Controller.extend({
       this.set('exampleTargetAttachment', 'middle left');
       this.set('exampleAttachment', 'middle right');
     },
-    closeTargetView() {
-      this.set('isShowingTargetView', false);
-      this.set('exampleTargetAttachment', 'middle left');
-      this.set('exampleAttachment', 'middle right');
-    },
     closeTargetElement() {
       this.set('isShowingTargetElement', false);
       this.set('exampleTargetAttachment', 'middle left');
       this.set('exampleAttachment', 'middle right');
+    },
+    clickedTranslucentOverlay() {
+      window.onClickOverlayCallbackCalled = true;
     }
   }
 });

@@ -1,15 +1,108 @@
 # Change Log
 
-## [0.8.4](https://github.com/yapplabs/ember-modal-dialog/tree/0.8.4) (2016-05-11)
-[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.8.3...0.8.4)
+## [v2.2.0](https://github.com/yapplabs/ember-modal-dialog/tree/v2.2.0) (2017-05-15)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v2.1.0...v2.2.0)
 
-**Closed issues:**
+**Merged pull requests:**
 
-- How about keeping targetModifier: null as default for tether-dialogs? [\#127](https://github.com/yapplabs/ember-modal-dialog/issues/127)
-- Rendering Link-to helpers inside the dialog changes the route, but doesn't close the modal. [\#119](https://github.com/yapplabs/ember-modal-dialog/issues/119)
-- clickOutsideToClose false is ignored on close action [\#115](https://github.com/yapplabs/ember-modal-dialog/issues/115)
-- Ember 1.12 compatible release? [\#112](https://github.com/yapplabs/ember-modal-dialog/issues/112)
-- Extending breaks wormhole to modal-overlays on 2.1.x and 2.2.x [\#97](https://github.com/yapplabs/ember-modal-dialog/issues/97)
+- Make modal-dialog component animatable via liquid-fire [\#193](https://github.com/yapplabs/ember-modal-dialog/pull/193) ([lukemelia](https://github.com/lukemelia))
+- Add support for an `overlayPosition` property which supports values of `'parent'` or `'sibling'` [\#192](https://github.com/yapplabs/ember-modal-dialog/pull/192) ([lukemelia](https://github.com/lukemelia))
+- Allow specifying `hasOverlay=false` to suppress output of the overlay div. [\#191](https://github.com/yapplabs/ember-modal-dialog/pull/191) ([lukemelia](https://github.com/lukemelia))
+- Minor README cleanup [\#190](https://github.com/yapplabs/ember-modal-dialog/pull/190) ([lukemelia](https://github.com/lukemelia))
+
+## [v2.1.0](https://github.com/yapplabs/ember-modal-dialog/tree/v2.1.0) (2017-05-14)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v2.0.0...v2.1.0)
+
+**Merged pull requests:**
+
+- Detect ember-tether and throw an error early if not present and tetherTarget is passed. [\#189](https://github.com/yapplabs/ember-modal-dialog/pull/189) ([lukemelia](https://github.com/lukemelia))
+- Make tests more robust with waitUntil [\#188](https://github.com/yapplabs/ember-modal-dialog/pull/188) ([lukemelia](https://github.com/lukemelia))
+- Simplify dummy app a bit [\#187](https://github.com/yapplabs/ember-modal-dialog/pull/187) ([lukemelia](https://github.com/lukemelia))
+- Unify `modal-dialog` and `tether-dialog` into one `modal-dialog` component [\#186](https://github.com/yapplabs/ember-modal-dialog/pull/186) ([lukemelia](https://github.com/lukemelia))
+- Replace `modal-dialog-overlay` component with a div and deprecate it. [\#185](https://github.com/yapplabs/ember-modal-dialog/pull/185) ([lukemelia](https://github.com/lukemelia))
+- Update title of dummy app [\#184](https://github.com/yapplabs/ember-modal-dialog/pull/184) ([lukemelia](https://github.com/lukemelia))
+- Rename `close` action to `onClose` and deprecate `close`. [\#183](https://github.com/yapplabs/ember-modal-dialog/pull/183) ([lukemelia](https://github.com/lukemelia))
+- Switch dummy app/tests to use routes instead of query params [\#182](https://github.com/yapplabs/ember-modal-dialog/pull/182) ([lukemelia](https://github.com/lukemelia))
+- install was installed inadvertently, so let's uninstall the inadvertent install of install [\#181](https://github.com/yapplabs/ember-modal-dialog/pull/181) ([lukemelia](https://github.com/lukemelia))
+- Use ember-native-dom-helpers and async/await [\#180](https://github.com/yapplabs/ember-modal-dialog/pull/180) ([lukemelia](https://github.com/lukemelia))
+- Upgrade ember-cli, ember-cli-babel, and friends [\#179](https://github.com/yapplabs/ember-modal-dialog/pull/179) ([lukemelia](https://github.com/lukemelia))
+- Use camelCase properties, deprecate public kebab case properties [\#178](https://github.com/yapplabs/ember-modal-dialog/pull/178) ([lukemelia](https://github.com/lukemelia))
+
+## [v2.0.0](https://github.com/yapplabs/ember-modal-dialog/tree/v2.0.0) (2017-05-12)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v2.0.0-beta.0...v2.0.0)
+
+**Merged pull requests:**
+
+- Update to Babel 6. [\#175](https://github.com/yapplabs/ember-modal-dialog/pull/175) ([rwjblue](https://github.com/rwjblue))
+
+## [v2.0.0-beta.0](https://github.com/yapplabs/ember-modal-dialog/tree/v2.0.0-beta.0) (2017-04-05)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v1.0.0...v2.0.0-beta.0)
+
+**Merged pull requests:**
+
+- Update ember-cli and other tooling dependencies. [\#174](https://github.com/yapplabs/ember-modal-dialog/pull/174) ([lukemelia](https://github.com/lukemelia))
+- Update ember-wormhole dependency and ember-tether devDependency [\#173](https://github.com/yapplabs/ember-modal-dialog/pull/173) ([lukemelia](https://github.com/lukemelia))
+- Drop support for Ember versions older than 2.4 [\#172](https://github.com/yapplabs/ember-modal-dialog/pull/172) ([lukemelia](https://github.com/lukemelia))
+
+## [v1.0.0](https://github.com/yapplabs/ember-modal-dialog/tree/v1.0.0) (2017-04-05)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.9.1...v1.0.0)
+
+**Merged pull requests:**
+
+- Use Chrome in CI. [\#171](https://github.com/yapplabs/ember-modal-dialog/pull/171) ([lukemelia](https://github.com/lukemelia))
+- \[BREAKING\] Change default scss to use static positioning for render in place. [\#169](https://github.com/yapplabs/ember-modal-dialog/pull/169) ([andrewhavens](https://github.com/andrewhavens))
+- Use yarn for dependency management [\#168](https://github.com/yapplabs/ember-modal-dialog/pull/168) ([andrewhavens](https://github.com/andrewhavens))
+- Add ability to specify a callback that is triggered when overlay is clicked. [\#167](https://github.com/yapplabs/ember-modal-dialog/pull/167) ([andrewhavens](https://github.com/andrewhavens))
+- Check for Ember version with new ember-cli-version-checker API. [\#166](https://github.com/yapplabs/ember-modal-dialog/pull/166) ([Dan-Ste](https://github.com/Dan-Ste))
+
+## [v0.9.1](https://github.com/yapplabs/ember-modal-dialog/tree/v0.9.1) (2017-02-14)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.9.0...v0.9.1)
+
+**Merged pull requests:**
+
+- Touch event handling on IOS for clickOutsideToClose [\#161](https://github.com/yapplabs/ember-modal-dialog/pull/161) ([Chee7ah](https://github.com/Chee7ah))
+- Add element center to positioned container [\#144](https://github.com/yapplabs/ember-modal-dialog/pull/144) ([wandertosee](https://github.com/wandertosee))
+- Register unique clickOutsideToClose click handlers [\#129](https://github.com/yapplabs/ember-modal-dialog/pull/129) ([oscarni](https://github.com/oscarni))
+
+## [v0.9.0](https://github.com/yapplabs/ember-modal-dialog/tree/v0.9.0) (2016-08-19)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.8.8...v0.9.0)
+
+**Merged pull requests:**
+
+- Support unit and integration tests out of the box. [\#142](https://github.com/yapplabs/ember-modal-dialog/pull/142) ([blimmer](https://github.com/blimmer))
+- Update README to change usage of `ember-key-responder` to `ember-keyboard` [\#141](https://github.com/yapplabs/ember-modal-dialog/pull/141) ([SaladFork](https://github.com/SaladFork))
+- Update ember-cli and use ember try's versionCompatibility [\#136](https://github.com/yapplabs/ember-modal-dialog/pull/136) ([lukemelia](https://github.com/lukemelia))
+
+## [v0.8.8](https://github.com/yapplabs/ember-modal-dialog/tree/v0.8.8) (2016-07-13)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.8.7...v0.8.8)
+
+**Merged pull requests:**
+
+- Move back to ember-wormhole 0.3.6 to retain support for older Ember versions [\#135](https://github.com/yapplabs/ember-modal-dialog/pull/135) ([lukemelia](https://github.com/lukemelia))
+
+## [v0.8.7](https://github.com/yapplabs/ember-modal-dialog/tree/v0.8.7) (2016-07-12)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.8.6...v0.8.7)
+
+**Merged pull requests:**
+
+- Avoid deprecation warning by updating ember-cli-htmlbars [\#134](https://github.com/yapplabs/ember-modal-dialog/pull/134) ([mdentremont](https://github.com/mdentremont))
+
+## [v0.8.6](https://github.com/yapplabs/ember-modal-dialog/tree/v0.8.6) (2016-07-05)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.8.5...v0.8.6)
+
+**Merged pull requests:**
+
+- Bump ember-cli-htmlbars to 1.0.3 [\#123](https://github.com/yapplabs/ember-modal-dialog/pull/123) ([sohara](https://github.com/sohara))
+
+## [v0.8.5](https://github.com/yapplabs/ember-modal-dialog/tree/v0.8.5) (2016-06-22)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.8.4...v0.8.5)
+
+**Merged pull requests:**
+
+- Call `this.\_super.init` to avoid ember-cli deprecation [\#132](https://github.com/yapplabs/ember-modal-dialog/pull/132) ([ascot21](https://github.com/ascot21))
+
+## [v0.8.4](https://github.com/yapplabs/ember-modal-dialog/tree/v0.8.4) (2016-05-11)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.8.3...v0.8.4)
 
 **Merged pull requests:**
 
@@ -20,15 +113,6 @@
 
 ## [v0.8.3](https://github.com/yapplabs/ember-modal-dialog/tree/v0.8.3) (2015-12-22)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.8.2...v0.8.3)
-
-**Closed issues:**
-
-- Introduction to ember-modal-dialog at Global Ember Meetup [\#105](https://github.com/yapplabs/ember-modal-dialog/issues/105)
-- allow click outside to close with overlay [\#101](https://github.com/yapplabs/ember-modal-dialog/issues/101)
-- Simple install doesn't work [\#100](https://github.com/yapplabs/ember-modal-dialog/issues/100)
-- alignment properties don't seem to make a difference [\#98](https://github.com/yapplabs/ember-modal-dialog/issues/98)
-- Deprecation warning with Ember CLI 1.13.12 [\#96](https://github.com/yapplabs/ember-modal-dialog/issues/96)
-- Deprecation warning on Ember CLI master [\#89](https://github.com/yapplabs/ember-modal-dialog/issues/89)
 
 **Merged pull requests:**
 
@@ -47,12 +131,6 @@
 ## [v0.8.1](https://github.com/yapplabs/ember-modal-dialog/tree/v0.8.1) (2015-09-19)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.8.0...v0.8.1)
 
-**Closed issues:**
-
-- How to pass along close action from inner component? [\#84](https://github.com/yapplabs/ember-modal-dialog/issues/84)
-- Acceptance testing the tether-dialog when input is in the block? [\#81](https://github.com/yapplabs/ember-modal-dialog/issues/81)
-- Alignment 'none' issue in positioned container [\#75](https://github.com/yapplabs/ember-modal-dialog/issues/75)
-
 **Merged pull requests:**
 
 - add additional learning resource [\#85](https://github.com/yapplabs/ember-modal-dialog/pull/85) ([jeffreybiles](https://github.com/jeffreybiles))
@@ -60,18 +138,6 @@
 
 ## [v0.8.0](https://github.com/yapplabs/ember-modal-dialog/tree/v0.8.0) (2015-09-10)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.7.7...v0.8.0)
-
-**Fixed bugs:**
-
-- Opening modal fails in Ember 1.13.7+ [\#71](https://github.com/yapplabs/ember-modal-dialog/issues/71)
-
-**Closed issues:**
-
-- Custom modal template [\#69](https://github.com/yapplabs/ember-modal-dialog/issues/69)
-- Modal positioning fails after browser resizing [\#68](https://github.com/yapplabs/ember-modal-dialog/issues/68)
-- Enter KeyboardEvent [\#67](https://github.com/yapplabs/ember-modal-dialog/issues/67)
-- modal-dialog template disjunction in \>0.7.3 breaks dependency setup [\#52](https://github.com/yapplabs/ember-modal-dialog/issues/52)
-- scrolling behavior for large modals [\#11](https://github.com/yapplabs/ember-modal-dialog/issues/11)
 
 **Merged pull requests:**
 
@@ -83,11 +149,6 @@
 ## [v0.7.7](https://github.com/yapplabs/ember-modal-dialog/tree/v0.7.7) (2015-08-04)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.7.6...v0.7.7)
 
-**Closed issues:**
-
-- Hide on click out with hasOverlay=false [\#55](https://github.com/yapplabs/ember-modal-dialog/issues/55)
-- Addon doesn't work with ember-cli \< 0.2.6 [\#53](https://github.com/yapplabs/ember-modal-dialog/issues/53)
-
 **Merged pull requests:**
 
 - refactor `updateAlignment` to make it clear what the different paths are [\#66](https://github.com/yapplabs/ember-modal-dialog/pull/66) ([raycohen](https://github.com/raycohen))
@@ -97,11 +158,6 @@
 
 ## [v0.7.6](https://github.com/yapplabs/ember-modal-dialog/tree/v0.7.6) (2015-07-27)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.7.5...v0.7.6)
-
-**Closed issues:**
-
-- basic modal test modal container incorrect [\#58](https://github.com/yapplabs/ember-modal-dialog/issues/58)
-- ember-modal-dialog doesn't work with IE8 [\#57](https://github.com/yapplabs/ember-modal-dialog/issues/57)
 
 **Merged pull requests:**
 
@@ -114,20 +170,12 @@
 ## [v0.7.5](https://github.com/yapplabs/ember-modal-dialog/tree/v0.7.5) (2015-06-25)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.7.4...v0.7.5)
 
-**Closed issues:**
-
-- Scrollbar for large modals \(or small browser window\) [\#45](https://github.com/yapplabs/ember-modal-dialog/issues/45)
-
 **Merged pull requests:**
 
 - Pass through additional ember-tether options [\#49](https://github.com/yapplabs/ember-modal-dialog/pull/49) ([chrislopresto](https://github.com/chrislopresto))
 
 ## [v0.7.4](https://github.com/yapplabs/ember-modal-dialog/tree/v0.7.4) (2015-06-19)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.7.3...v0.7.4)
-
-**Closed issues:**
-
-- Sass mandatory? [\#42](https://github.com/yapplabs/ember-modal-dialog/issues/42)
 
 **Merged pull requests:**
 
@@ -136,12 +184,6 @@
 ## [v0.7.3](https://github.com/yapplabs/ember-modal-dialog/tree/v0.7.3) (2015-06-19)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.7.2...v0.7.3)
 
-**Closed issues:**
-
-- Extending modal-dialog subclass doesn't work [\#40](https://github.com/yapplabs/ember-modal-dialog/issues/40)
-- Deprecated in ember-cli 0.2.6 [\#39](https://github.com/yapplabs/ember-modal-dialog/issues/39)
-- Template Deprecations \(due to `bind-attr` and `classNameBindings`\) with 1.13+. [\#34](https://github.com/yapplabs/ember-modal-dialog/issues/34)
-
 **Merged pull requests:**
 
 - Swap the modal-dialog template based on Ember version. [\#43](https://github.com/yapplabs/ember-modal-dialog/pull/43) ([rwjblue](https://github.com/rwjblue))
@@ -149,18 +191,8 @@
 ## [v0.7.2](https://github.com/yapplabs/ember-modal-dialog/tree/v0.7.2) (2015-05-31)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.7.1...v0.7.2)
 
-**Closed issues:**
-
-- Ember 1.13.0-beta.2  You cannot use classNameBindings on a tag-less component [\#38](https://github.com/yapplabs/ember-modal-dialog/issues/38)
-- Needs live demo [\#37](https://github.com/yapplabs/ember-modal-dialog/issues/37)
-
 ## [v0.7.1](https://github.com/yapplabs/ember-modal-dialog/tree/v0.7.1) (2015-05-24)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.7.0...v0.7.1)
-
-**Closed issues:**
-
-- top-center alignment [\#8](https://github.com/yapplabs/ember-modal-dialog/issues/8)
-- Leverage a dedicated library for positioning [\#5](https://github.com/yapplabs/ember-modal-dialog/issues/5)
 
 **Merged pull requests:**
 
@@ -168,11 +200,6 @@
 
 ## [v0.7.0](https://github.com/yapplabs/ember-modal-dialog/tree/v0.7.0) (2015-05-19)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.6.0...v0.7.0)
-
-**Closed issues:**
-
-- crossdomain.xml and robots.txt [\#29](https://github.com/yapplabs/ember-modal-dialog/issues/29)
-- How to test in a component unit test [\#15](https://github.com/yapplabs/ember-modal-dialog/issues/15)
 
 **Merged pull requests:**
 
@@ -184,11 +211,6 @@
 ## [v0.6.0](https://github.com/yapplabs/ember-modal-dialog/tree/v0.6.0) (2015-05-05)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.5.0...v0.6.0)
 
-**Closed issues:**
-
-- Custom modals don't have destinationElementId injected [\#22](https://github.com/yapplabs/ember-modal-dialog/issues/22)
-- Routable modal without losing existing routes template [\#14](https://github.com/yapplabs/ember-modal-dialog/issues/14)
-
 **Merged pull requests:**
 
 - Add modal-dialog service with `destinationElementId` for easier subclassing [\#28](https://github.com/yapplabs/ember-modal-dialog/pull/28) ([rlivsey](https://github.com/rlivsey))
@@ -197,10 +219,6 @@
 
 ## [v0.5.0](https://github.com/yapplabs/ember-modal-dialog/tree/v0.5.0) (2015-04-28)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.4.1...v0.5.0)
-
-**Closed issues:**
-
-- Close when user clicks off modal \(on overlay\) [\#24](https://github.com/yapplabs/ember-modal-dialog/issues/24)
 
 **Merged pull requests:**
 
@@ -229,14 +247,10 @@
 ## [v0.2.1](https://github.com/yapplabs/ember-modal-dialog/tree/v0.2.1) (2015-04-10)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/0.2.0...v0.2.1)
 
-**Closed issues:**
-
-- close on 'escape' [\#9](https://github.com/yapplabs/ember-modal-dialog/issues/9)
-
 **Merged pull requests:**
 
-- Remove orphan overlay component [\#13](https://github.com/yapplabs/ember-modal-dialog/pull/13) ([ofbriggs](https://github.com/ofbriggs))
-- Updating ember-cli version to fix build errors on windows [\#12](https://github.com/yapplabs/ember-modal-dialog/pull/12) ([ofbriggs](https://github.com/ofbriggs))
+- Remove orphan overlay component [\#13](https://github.com/yapplabs/ember-modal-dialog/pull/13) ([olivia](https://github.com/olivia))
+- Updating ember-cli version to fix build errors on windows [\#12](https://github.com/yapplabs/ember-modal-dialog/pull/12) ([olivia](https://github.com/olivia))
 - Clarify key-responder is about keyboard shortcuts [\#10](https://github.com/yapplabs/ember-modal-dialog/pull/10) ([samselikoff](https://github.com/samselikoff))
 
 ## [0.2.0](https://github.com/yapplabs/ember-modal-dialog/tree/0.2.0) (2015-04-05)

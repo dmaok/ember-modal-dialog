@@ -1,36 +1,19 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
-var path = require('path');
-var fs = require('fs');
 
-var VersionChecker = require('ember-cli-version-checker');
+var fs = require('fs');
+var path = require('path');
 
 module.exports = {
   name: 'ember-modal-dialog',
+  config: function (env, baseConfig) {
+    var configPath = path.join(this.root, 'config', 'environment.js');
 
-  init: function() {
-    if (this._super.init) { this._super.init.apply(this, arguments); }
-    
-    var checker = new VersionChecker(this);
-    if (!checker.for('ember-cli', 'npm').isAbove('0.2.6')) {
-      console.warn("Warning: ember-modal-dialog requires ember-cli >= 0.2.6 "
-                   + "for support for the addon-templates tree, which allows "
-                   + "us to support various ember versions. Use an older "
-                   + "version of ember-modal-dialog if you are stuck on an "
-                   + "older ember-cli.");
-    }
-  },
+    if (fs.existsSync(configPath)) {
+      var configGenerator = require(configPath);
 
-  treeForAddonTemplates: function treeForAddonTemplates (tree) {
-    var checker = new VersionChecker(this);
-    var dep = checker.for('ember', 'bower');
-
-    var baseTemplatesPath = path.join(this.root, 'addon/templates');
-
-    if (dep.lt('1.13.0-beta.1')) {
-      return this.treeGenerator(path.join(baseTemplatesPath, 'lt-1-13'));
-    } else {
-      return this.treeGenerator(path.join(baseTemplatesPath, 'current'));
+      return configGenerator(env, baseConfig, this);
     }
   }
+
 };
