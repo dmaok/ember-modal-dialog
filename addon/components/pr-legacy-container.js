@@ -11,17 +11,13 @@ export default Component.extend({
    * @return {[type]} [description]
    */
   didInsertElement() {
-    window.Window.emberModalInit(
+    this._super(...arguments);
+    window.PR_Window.emberModalInit(
       this.$(),
-      () => {
-        this.sendAction('afterOpen');
-      },
+      () => this.afterOpen(),
       this.get('nonMiddled'),
       this.get('closable'),
-      (container_id, data) => {
-        var _doTransition = data.onTransitionClose ? false : true;
-        this.sendAction('close', _doTransition);
-      }
+      (container_id, data) => this.close(!data.onTransitionClose)
     );
   },
 
@@ -34,6 +30,6 @@ export default Component.extend({
     // если модал открывается НЕ по отдельному урлу.(для остальных случаев есть mixin)
     // помогает избежать активного диммера
     // при работе юзера с историей браузера(при нажатии на кнопку назад)
-    window.Window.close(this.get('modalClassName'));
+    window.PR_Window.close(this.get('modalClassName'));
   }
 });

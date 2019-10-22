@@ -1,20 +1,20 @@
-{{#ember-wormhole to='modal_layer' renderInPlace=renderInPlace}}
+{{#ember-wormhole to="modal_layer" renderInPlace=renderInPlace}}
   {{#ember-modal-dialog-pr-legacy-container
-      targetAttachment=targetAttachment
-      target=target
-      close="close"
-      afterOpen="afterOpen"
-      nonMiddled=nonMiddled
-      closable=closable
-      modalClassName=modalClass
+          targetAttachment=targetAttachment
+          target=target
+          close="close"
+          afterOpen="afterOpen"
+          nonMiddled=nonMiddled
+          closable=closable
+          modalClassName=modalClass
   }}
     <div class="modal-window {{modalClass}}">
       {{#if closable}}
-      <div class="modal-window-header">
-            <a class="close" {{action "btnCloseClick"}}>
+        <div class="modal-window-header">
+          <a class="close" {{action "btnCloseClick"}}>
             <i class="fa fa-remove"></i>
           </a>
-      </div>
+        </div>
       {{/if}}
       <div class="modal-window-body">
         {{yield}}

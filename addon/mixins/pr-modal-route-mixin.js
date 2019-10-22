@@ -21,7 +21,7 @@ export default Mixin.create({
     willTransition: function(transition) {
       // close modal only when route changes
       if (transition.targetName !== this.router.get('currentRouteName')) {
-        window.Window.emberModalOnTransitionClose(this.get('modalClassName'));
+        window.PR_Window.emberModalOnTransitionClose(this.get('modalClassName'));
       }
     }
   },

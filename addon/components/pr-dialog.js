@@ -9,7 +9,7 @@ export default Component.extend({
   layout,
   modalService: service('modal-dialog'),
   destinationElementId: oneWay('modalService.destinationElementId'),
-  
+
   nonMiddled: false,
   closable: true,
 
@@ -24,13 +24,13 @@ export default Component.extend({
    */
   actions: {
     afterOpen() {
-      this.sendAction('afterOpen');
+      this.afterOpen();
     },
     close(doTransition) {
-      this.sendAction('close', doTransition);
+      this.close(doTransition);
     },
     btnCloseClick() {
-      window.Window.close(this.get('modalClassName'));
+      window.PR_Window.close(this.get('modalClassName'));
     }
   }
 });
