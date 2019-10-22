@@ -1,7 +1,7 @@
-import Ember from 'ember';
-const { get, set } = Ember;
+import Controller from '@ember/controller';
+import { set, get } from '@ember/object';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   isShowingBasic: false,
   isShowingTranslucent: false,
   isShowingTranslucentWithCallback: false,
@@ -85,11 +85,11 @@ export default Ember.Controller.extend({
       this.toggleProperty('isShowingCenteredScrolling');
 
       if (this.get('isShowingCenteredScrolling')) {
-        Ember.$('#modal-overlays').addClass('active');
-        Ember.$('body').addClass('centered-modal-showing');
+        document.querySelector('#modal-overlays').classList.add('active');
+        document.body.classList.add('centered-modal-showing');
       } else {
-        Ember.$('#modal-overlays').removeClass('active');
-        Ember.$('body').removeClass('centered-modal-showing');
+        document.querySelector('#modal-overlays').classList.remove('active');
+        document.body.classList.remove('centered-modal-showing');
       }
     },
     toggleElementCenterModal() {

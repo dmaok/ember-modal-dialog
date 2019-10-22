@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Mixin from '@ember/object/mixin';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
 
   /**
    * [modalClassName description]
@@ -21,7 +21,7 @@ export default Ember.Mixin.create({
     willTransition: function(transition) {
       // close modal only when route changes
       if (transition.targetName !== this.router.get('currentRouteName')) {
-        window.Window.emberModalOnTransitionClose(this.get('modalClassName'));
+        window.PR_Window.emberModalOnTransitionClose(this.get('modalClassName'));
       }
     }
   },

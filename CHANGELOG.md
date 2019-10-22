@@ -1,5 +1,101 @@
 # Change Log
 
+## [3.0.0-beta.4](https://github.com/yapplabs/ember-modal-dialog/tree/3.0.0-beta.4) (2019-06-18)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v3.0.0-beta.3...3.0.0-beta.4)
+
+**Merged pull requests:**
+
+- Pure CSS [\#278](https://github.com/yapplabs/ember-modal-dialog/pull/278) ([chrism](https://github.com/chrism))
+- Upgrading dependencies [\#277](https://github.com/yapplabs/ember-modal-dialog/pull/277) ([chrism](https://github.com/chrism))
+- Move contribution guide to CONTRIBUTING.md [\#274](https://github.com/yapplabs/ember-modal-dialog/pull/274) ([hakilebara](https://github.com/hakilebara))
+- Add a table of contents to README.md [\#272](https://github.com/yapplabs/ember-modal-dialog/pull/272) ([hakilebara](https://github.com/hakilebara))
+
+## [v3.0.0-beta.3](https://github.com/yapplabs/ember-modal-dialog/tree/v3.0.0-beta.3) (2018-11-23)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v3.0.0-beta.2...v3.0.0-beta.3)
+
+**Merged pull requests:**
+
+- Only try to invoke onClose action if it has been provided [\#271](https://github.com/yapplabs/ember-modal-dialog/pull/271) ([lukemelia](https://github.com/lukemelia))
+
+## [v3.0.0-beta.2](https://github.com/yapplabs/ember-modal-dialog/tree/v3.0.0-beta.2) (2018-11-12)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v3.0.0-beta.1...v3.0.0-beta.2)
+
+**Merged pull requests:**
+
+- \[BREAKING\] Update to ember-cli-babel@7. \(Drops support for ember-cli \< 2.13\) [\#266](https://github.com/yapplabs/ember-modal-dialog/pull/266) ([rwjblue](https://github.com/rwjblue))
+
+## [v3.0.0-beta.1](https://github.com/yapplabs/ember-modal-dialog/tree/v3.0.0-beta.1) (2018-11-12)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v2.4.4...v3.0.0-beta.1)
+
+**Merged pull requests:**
+
+- \[BREAKING\] Update ember to 3.5, drop support for Ember 2.4  [\#265](https://github.com/yapplabs/ember-modal-dialog/pull/265) ([lukemelia](https://github.com/lukemelia))
+- use closure actions [\#264](https://github.com/yapplabs/ember-modal-dialog/pull/264) ([mcfiredrill](https://github.com/mcfiredrill))
+- Handle when App.rootElement can be a node, rather than an id [\#263](https://github.com/yapplabs/ember-modal-dialog/pull/263) ([averydev](https://github.com/averydev))
+- update README.md Custom Modals section [\#259](https://github.com/yapplabs/ember-modal-dialog/pull/259) ([hakilebara](https://github.com/hakilebara))
+- Update .travis.yml [\#258](https://github.com/yapplabs/ember-modal-dialog/pull/258) ([samselikoff](https://github.com/samselikoff))
+- Don't sendAction in click handler when component isDestroying or isDestroyed [\#255](https://github.com/yapplabs/ember-modal-dialog/pull/255) ([oscarni](https://github.com/oscarni))
+
+## [v2.4.4](https://github.com/yapplabs/ember-modal-dialog/tree/v2.4.4) (2018-05-14)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v3.0.0-beta.0...v2.4.4)
+
+## [v3.0.0-beta.0](https://github.com/yapplabs/ember-modal-dialog/tree/v3.0.0-beta.0) (2018-03-03)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v2.4.3...v3.0.0-beta.0)
+
+**Merged pull requests:**
+
+- Update dependencies [\#247](https://github.com/yapplabs/ember-modal-dialog/pull/247) ([lukemelia](https://github.com/lukemelia))
+- \[BREAKING\] Remove deprecations in anticipation of 3.0.0 [\#246](https://github.com/yapplabs/ember-modal-dialog/pull/246) ([lukemelia](https://github.com/lukemelia))
+
+## [v2.4.3](https://github.com/yapplabs/ember-modal-dialog/tree/v2.4.3) (2018-03-03)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v2.4.2...v2.4.3)
+
+**Merged pull requests:**
+
+- Fix bug in specifying incorrect overlay selector on iOS [\#245](https://github.com/yapplabs/ember-modal-dialog/pull/245) ([lukemelia](https://github.com/lukemelia))
+
+## [v2.4.2](https://github.com/yapplabs/ember-modal-dialog/tree/v2.4.2) (2018-02-22)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v2.4.1...v2.4.2)
+
+**Merged pull requests:**
+
+- Update version compatibility \(which controls ember:try version targets\) [\#243](https://github.com/yapplabs/ember-modal-dialog/pull/243) ([lukemelia](https://github.com/lukemelia))
+- Fix bug with clickOutsideToClose when specifying a stack [\#242](https://github.com/yapplabs/ember-modal-dialog/pull/242) ([andrewhavens](https://github.com/andrewhavens))
+- ember-cli-update to 2.17 [\#235](https://github.com/yapplabs/ember-modal-dialog/pull/235) ([Dhaulagiri](https://github.com/Dhaulagiri))
+- Removing jQuery [\#234](https://github.com/yapplabs/ember-modal-dialog/pull/234) ([gmurphey](https://github.com/gmurphey))
+- Confusing sentence [\#223](https://github.com/yapplabs/ember-modal-dialog/pull/223) ([dan-ste](https://github.com/dan-ste))
+
+## [v2.4.1](https://github.com/yapplabs/ember-modal-dialog/tree/v2.4.1) (2017-12-05)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v2.4.0...v2.4.1)
+
+**Merged pull requests:**
+
+- Revert modules update to file in app directory [\#232](https://github.com/yapplabs/ember-modal-dialog/pull/232) ([Dhaulagiri](https://github.com/Dhaulagiri))
+- handle global document being undefined [\#230](https://github.com/yapplabs/ember-modal-dialog/pull/230) ([BryanCrotaz](https://github.com/BryanCrotaz))
+
+## [v2.4.0](https://github.com/yapplabs/ember-modal-dialog/tree/v2.4.0) (2017-11-21)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v2.3.0...v2.4.0)
+
+**Merged pull requests:**
+
+- Add ember-cli-version-checker as a dep [\#222](https://github.com/yapplabs/ember-modal-dialog/pull/222) ([samselikoff](https://github.com/samselikoff))
+- Make optional dependencies section easier to read [\#220](https://github.com/yapplabs/ember-modal-dialog/pull/220) ([chrisvdp](https://github.com/chrisvdp))
+- fix\(\#195\): provide default values for concatenatedProperties [\#217](https://github.com/yapplabs/ember-modal-dialog/pull/217) ([RustyToms](https://github.com/RustyToms))
+- use new modules api [\#215](https://github.com/yapplabs/ember-modal-dialog/pull/215) ([Dhaulagiri](https://github.com/Dhaulagiri))
+- Fixed formatting on `ember install ember-tether` [\#209](https://github.com/yapplabs/ember-modal-dialog/pull/209) ([djones](https://github.com/djones))
+- keyboard example - use Ember best practice form instead of .on\(\) [\#208](https://github.com/yapplabs/ember-modal-dialog/pull/208) ([caseywatts](https://github.com/caseywatts))
+- Update imports for newer Ember-cli [\#204](https://github.com/yapplabs/ember-modal-dialog/pull/204) ([mazondo](https://github.com/mazondo))
+
+## [v2.3.0](https://github.com/yapplabs/ember-modal-dialog/tree/v2.3.0) (2017-06-23)
+[Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v2.2.0...v2.3.0)
+
+**Merged pull requests:**
+
+- Don't fail if ENV\['ember-modal-dialog'\] is not defined [\#202](https://github.com/yapplabs/ember-modal-dialog/pull/202) ([lukemelia](https://github.com/lukemelia))
+- Pass `stack` and `value` properties through to liquid-wormhole/liquid-tether [\#201](https://github.com/yapplabs/ember-modal-dialog/pull/201) ([lukemelia](https://github.com/lukemelia))
+- Fix modals in FastBoot [\#200](https://github.com/yapplabs/ember-modal-dialog/pull/200) ([sandydoo](https://github.com/sandydoo))
+- Typo: missing comma [\#197](https://github.com/yapplabs/ember-modal-dialog/pull/197) ([jacobq](https://github.com/jacobq))
+
 ## [v2.2.0](https://github.com/yapplabs/ember-modal-dialog/tree/v2.2.0) (2017-05-15)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v2.1.0...v2.2.0)
 
@@ -53,7 +149,7 @@
 - \[BREAKING\] Change default scss to use static positioning for render in place. [\#169](https://github.com/yapplabs/ember-modal-dialog/pull/169) ([andrewhavens](https://github.com/andrewhavens))
 - Use yarn for dependency management [\#168](https://github.com/yapplabs/ember-modal-dialog/pull/168) ([andrewhavens](https://github.com/andrewhavens))
 - Add ability to specify a callback that is triggered when overlay is clicked. [\#167](https://github.com/yapplabs/ember-modal-dialog/pull/167) ([andrewhavens](https://github.com/andrewhavens))
-- Check for Ember version with new ember-cli-version-checker API. [\#166](https://github.com/yapplabs/ember-modal-dialog/pull/166) ([Dan-Ste](https://github.com/Dan-Ste))
+- Check for Ember version with new ember-cli-version-checker API. [\#166](https://github.com/yapplabs/ember-modal-dialog/pull/166) ([dan-ste](https://github.com/dan-ste))
 
 ## [v0.9.1](https://github.com/yapplabs/ember-modal-dialog/tree/v0.9.1) (2017-02-14)
 [Full Changelog](https://github.com/yapplabs/ember-modal-dialog/compare/v0.9.0...v0.9.1)

@@ -1,13 +1,14 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import { dasherize } from '@ember/string';
 import BasicDialog from './basic-dialog';
 import layout from '../templates/components/tether-dialog';
 
-const { dasherize } = Ember.String;
-const { computed } = Ember;
-
 export default BasicDialog.extend({
   layout,
-
+  init(){
+    this._super(...arguments);
+    this._ensureAttachments();
+  },
   targetAttachmentClass: computed('targetAttachment', function() {
     let targetAttachment = this.get('targetAttachment') || '';
     return `ember-modal-dialog-target-attachment-${dasherize(targetAttachment)}`;
@@ -17,12 +18,7 @@ export default BasicDialog.extend({
   attachment: null,
   didReceiveAttrs() {
     this._super(...arguments);
-    if (!this.get('attachment')) {
-      this.set('attachment', 'middle center');
-    }
-    if (!this.get('targetAttachment')) {
-      this.set('targetAttachment', 'middle center');
-    }
+    this._ensureAttachments();
   },
   tetherTarget: null, // element, css selector, view instance, 'viewport', or 'scroll-handle'
   tetherClassPrefix: computed({
@@ -38,4 +34,12 @@ export default BasicDialog.extend({
   // offset - passed in
   // targetOffset - passed in
   // targetModifier - passed in
+  _ensureAttachments() {
+    if (!this.get('attachment')) {
+      this.set('attachment', 'middle center');
+    }
+    if (!this.get('targetAttachment')) {
+      this.set('targetAttachment', 'middle center');
+    }
+  }
 });
