@@ -4,6 +4,37 @@ The ember-modal-dialog addon provides components to implement modal dialogs thro
 
 Unlike some other modal libraries for Ember, ember-modal-dialog uses solutions like [ember-wormhole](//github.com/yapplabs/ember-wormhole) to render a modal structure as a top-level DOM element for layout purposes while retaining its logical position in the Ember view hierarchy. This difference introduces a certain elegance and, dare we say, joy, into the experience of using modals in your app. For more info on this, see the "Wormhole" section below.
 
+## Table of Contents
+
+<!-- toc -->
+
+- [Live Demo and Test Examples](#live-demo-and-test-examples)
+- [Including In An Ember Application](#including-in-an-ember-application)
+- [Upgrading](#upgrading)
+- [Controller-bound Usage](#controller-bound-usage)
+- [Routable Usage](#routable-usage)
+- [Configurable Properties](#configurable-properties)
+  * [modal-dialog](#modal-dialog)
+    + [Tethering](#tethering)
+    + [Animation](#animation)
+  * [Optional Dependencies](#optional-dependencies)
+- [Which Component Should I Use?](#which-component-should-i-use)
+- [Positioning](#positioning)
+    + [Caveats](#caveats)
+- [Wormholes](#wormholes)
+- [Configuring the Modal Root Element Id](#configuring-the-modal-root-element-id)
+- [Configuring Styles](#configuring-styles)
+- [Keyboard shortcuts](#keyboard-shortcuts)
+- [iOS](#ios)
+- [Custom Modals](#custom-modals)
+- [Using as a nested addon](#using-as-a-nested-addon)
+- [Dependencies](#dependencies)
+- [Additional Resources](#additional-resources)
+- [Contributing](#contributing)
+- [Credits](#credits)
+
+<!-- tocstop -->
+
 ## Live Demo and Test Examples
 
 View a live demo here: [http://yapplabs.github.io/ember-modal-dialog/](http://yapplabs.github.io/ember-modal-dialog/)
@@ -18,13 +49,14 @@ Here is the simplest way to get started with ember-modal-dialog:
 
 ```sh
 ember install ember-modal-dialog
-ember install ember-cli-sass
 ```
 
-**app.scss**
-```scss
-@import "ember-modal-dialog/ember-modal-structure";
-@import "ember-modal-dialog/ember-modal-appearance";
+Then import the CSS files
+
+**app.css**
+```css
+@import "ember-modal-dialog/ember-modal-structure.css";
+@import "ember-modal-dialog/ember-modal-appearance.css";
 ```
 
 **application.hbs**
@@ -34,6 +66,14 @@ ember install ember-cli-sass
 {{/modal-dialog}}
 ```
 
+## Upgrading
+
+Earlier versions of `ember-modal-dialog` required `ember-cli-sass` and an `app.scss` file to import styling.
+
+Please be aware this is no longer the case.
+
+Existing applications should continue to work correctly but if you were using `ember-cli-sass` solely due to `ember-modal-dialog` it might be worthwhile removing `ember-cli-sass` completely and just importing the styles directly into `app.css` instead, as shown above.
+
 ## Controller-bound Usage
 
 Here is a more useful example of how to conditionally display a modal based on a user interaction.
@@ -41,12 +81,14 @@ Here is a more useful example of how to conditionally display a modal based on a
 **Template**
 
 ```htmlbars
-<button {{action "toggleModal"}}>Toggle Modal</button>
+<button {{action (action "toggleModal")}}>Toggle Modal</button>
 
 {{#if isShowingModal}}
-  {{#modal-dialog onClose="toggleModal"
-                  targetAttachment="center"
-                  translucentOverlay=true}}
+  {{#modal-dialog
+      onClose=(action "toggleModal")
+      targetAttachment="center"
+      translucentOverlay=true
+  }}
     Oh hai there!
   {{/modal-dialog}}
 {{/if}}
@@ -92,9 +134,7 @@ Property              | Purpose
 `overlayClassNames`   | CSS class names to append to overlay divs. This is a concatenated property, so it does **not** replace the default overlay class (default: `'ember-modal-overlay'`. If you subclass this component, you may define this in your subclass.)
 `wrapperClass`        | CSS class name(s) to append to wrapper divs. Set this from template.
 `wrapperClassNames`   | CSS class names to append to wrapper divs. This is a concatenated property, so it does **not** replace the default container class (default: `'ember-modal-wrapper'`. If you subclass this component, you may define this in your subclass.)
-`animatable`          | A boolean, when `true` makes modal animatable using `liquid-fire` (requires `liquid-wormhole` to be installed, and for tethering situations `liquid-tether`. Having these optional dependencies installed and NOT explicitly specifying `animatable` is deprecated in 2.x and is equivalent to `animatable=false` for backwards compatibility. As of 3.x, the implicit default will be `animatable=true` when the optional `liquid-wormhole`/`liquid-tether` dependency is present.
-
-The above properties of the `modal-dialog` component can be used without any additional  dependencies.
+`animatable`          | A boolean, when `true` makes modal animatable using `liquid-fire` (requires `liquid-wormhole` to be installed, and for tethering situations `liquid-tether`. Having these optional dependencies installed and not specifying `animatable` will make `animatable=true` be the default.)
 
 #### Tethering
 
@@ -123,16 +163,22 @@ Property              | Purpose
 
 This component supports animation when certain addons are present (liquid-wormhole, liquid-tether).
 
-_Current 2.x behavior:_  Having these optional dependencies installed and NOT explicitly specifying `animatable` is deprecated in 2.x and is equivalent to `animatable=false` for backwards compatibility. To get animation, pass `animatable=true` and install `liquid-wormhole` for non-tethering usage and `liquid-tether` for tethering usage.
+Detection is be automatic. To opt out of using animatable features when you have these `liquid-*` addons installed, pass `animatable=false`.
 
-_Upcoming 3.x behavior:_ Detection will be automatic. To opt out of using animatable features when you have these `liquid-*` addons installed, pass `animatable=false`.
+When in an animatable scenario, you may also pass the following properties, which are passed through to liquid-wormhole or liquid-tether:
 
-### Optional dependencies
+Property              | Purpose
+--------------------- | -------------
+`stack`               | Delegates to liquid-wormhole/liquid-tether
 
-`ember install ember-tether` [Docs](//github.com/yapplabs/ember-tether/)
-`ember install liquid-wormhole` [Docs](//pzuraq.github.io/liquid-wormhole/)
-`ember install liquid-tether` [Docs](//pzuraq.github.io/liquid-tether/)
-`ember install liquid-fire` [Docs](//ember-animation.github.io/liquid-fire/)
+### Optional Dependencies
+
+Dependency                      | Documentation
+--------------------------------|------------
+`ember install ember-tether`    | [Docs](//github.com/yapplabs/ember-tether/)
+`ember install liquid-wormhole` | [Docs](//pzuraq.github.io/liquid-wormhole/)
+`ember install liquid-tether`   | [Docs](//pzuraq.github.io/liquid-tether/)
+`ember install liquid-fire`     | [Docs](//ember-animation.github.io/liquid-fire/)
 
 
 ## Which Component Should I Use?
@@ -151,7 +197,7 @@ This can be customized (see `overlayPosition`).
 
 ## Positioning
 
-With the default SCSS provided, your modal will be centered in the viewport. By adjusting the CSS, you can adjust this logic.
+With the default CSS provided, your modal will be centered in the viewport. By adjusting the CSS, you can adjust this logic.
 
 Pass a `tetherTarget` in order to position our modal in relation to the target and enable your modal remain positioned near their targets when users scroll or resize the window.
 
@@ -159,15 +205,16 @@ Use `attachment` and `targetAttachment` properties to configure positioning of t
 
 To enable this behavior, install ember-tether as a dependency of **your ember app**.
 
-    `ember install ember-tether`
+    ember install ember-tether
 
 Then pass a selector as `tetherTarget` for the modal you wish to position this way:
 
 ```htmlbars
 {{#modal-dialog
-  tetherTarget='#target-element-id'
-  targetAttachment='middle right'
-  attachment='middle left'}}
+    tetherTarget='#target-element-id'
+    targetAttachment='middle right'
+    attachment='middle left'
+}}
   I am a modal that will remain tethered to the right of the element with id 'target-element-id'
 {{/modal-dialog}}
 ```
@@ -210,19 +257,21 @@ module.exports = function(environment) {
 
 ## Configuring Styles
 
-The addon packages default styles for modal structure and appearance. To use these styles, install ember-cli-sass and import the relevant SCSS file(s) in `app.scss`.
+You can import the CSS files directly
 
-```sh
-> ember install ember-cli-sass
+**app.css**
+```css
+@import "ember-modal-dialog/ember-modal-structure.css";
+@import "ember-modal-dialog/ember-modal-appearance.css";
 ```
+
+If you’re using SASS then just import the CSS slightly differently
 
 **app.scss**
 ```scss
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
 ```
-
-If you would prefer not to use Sass, just grab the contents of these files and adapt them for your needs -- there is not much there.
 
 ## Keyboard shortcuts
 
@@ -232,18 +281,26 @@ A quick-and-dirty way to implement keyboard shortcuts (e.g. to dismiss your moda
 // app/components/modal-dialog.js
 import ModalDialog from 'ember-modal-dialog/components/modal-dialog';
 
-export default ModalDialog.extend({
-  setup: function() {
-    Ember.$('body').on('keyup.modal-dialog', (e) => {
-      if (e.keyCode === 27) {
-        this.sendAction('close');
-      }
-    });
-  }.on('didInsertElement'),
+const ESC_KEY = 27;
 
-  teardown: function() {
+export default ModalDialog.extend({
+  didInsertElement() {
+    this._super(...arguments);
+    this._initEscListener();
+  },
+
+  willDestroyElement(){
+    this._super(...arguments);
     Ember.$('body').off('keyup.modal-dialog');
-  }.on('willDestroyElement')
+  },
+
+  _initEscListener() {
+    const closeOnEscapeKey = (ev) => {
+      if (ev.keyCode === ESC_KEY) { this.get('onClose')(); }
+    };
+
+    Ember.$('body').on('keyup.modal-dialog', closeOnEscapeKey);
+  },
 });
 ```
 
@@ -260,10 +317,10 @@ export default ModalDialog.extend(EmberKeyboardMixin, {
     this._super(...arguments);
 
     this.set('keyboardActivated', true);
-  }
+  },
 
   closeOnEsc: Ember.on(keyDown('Escape'), function() {
-    this.sendAction('close');
+    this.get('onClose')();
   })
 });
 ```
@@ -289,7 +346,8 @@ export default ModalDialog.extend({
 });
 ```
 
-This can then be used like so:
+By subclassing `modal-dialog` your component will use the default modal dialog template. Therefore, you do not need to create a `app/templates/components/full-screen-modal.hbs` file.
+Your component can then be used like so:
 
 ```htmlbars
 {{#full-screen-modal}}
@@ -320,46 +378,19 @@ module.exports = {
 
 ## Dependencies
 
-* For Ember versions >= 2.4, use the latest published version
+* For Ember versions >= 2.8, use the latest published version (Note that ember-cli >= 2.13 is required, though your ember version may be >= 2.8)
+* For Ember versions >= 2.4 and < 2.8, use the latest 2.x version
 * For Ember versions >= 1.10 and < 2.4, use ember-modal-dialog 1.0.0 _(Due to a bug in these versions of Ember, you may have trouble with Ember 1.13.7, 1.13.8 and 1.13.9 -- See #71)_
-
-## Installation
-
-* `ember install ember-modal-dialog`
-
-## Running the dummy app
-
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-## Running Tests
-
-* `ember try:each`
-* `ember test`
-* `ember test --server`
-
-## Unit Tests
-
-When running unit tests on components that use ember-modal-dialog, modals will be
-attached to the `#ember-testing` div.
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
-
-## Generating the Changelog
-
-This project uses [https://github.com/skywinder/github-changelog-generator](https://github.com/skywinder/github-changelog-generator) to generate its changelog.
-
-`github_changelog_generator --future-release=x.y.z`
 
 ## Additional Resources
 
 * [Screencast on using ember-modal-dialog](https://www.emberscreencasts.com/posts/74-ember-modal-dialog)
 
+## Contributing
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
 ## Credits
 
 Contributions from @stefanpenner, @krisselden, @chrislopresto, @lukemelia, @raycohen, @andrewhavens, @samselikoff and
-others. [Yapp Labs](http://yapplabs.com) is an Ember.js consultancy based in NYC.
+others. [Yapp Labs](http://yapplabs.com) was an Ember.js consultancy based in NYC, that has since been folded into [Yapp](https://www.yapp.us).
