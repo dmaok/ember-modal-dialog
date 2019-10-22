@@ -1,13 +1,13 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
+import { oneWay } from '@ember/object/computed';
+import { computed } from '@ember/object';
 import layout from '../templates/components/pr-dialog';
 
-const { computed, inject } = Ember;
-const { oneWay } = computed;
-
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: '',
   layout,
-  modalService: inject.service('modal-dialog'),
+  modalService: service('modal-dialog'),
   destinationElementId: oneWay('modalService.destinationElementId'),
   
   nonMiddled: false,
